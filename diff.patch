@@ -1,0 +1,32 @@
+--- ./AGENTS-base.md	2026-04-06 12:58:43.215965642 +0300
++++ ./AGENTS-enhanced.md	2026-04-06 12:58:43.216823250 +0300
+@@ -115,6 +115,29 @@
+ - Не дублировать — если скилл уже в `.skills/`, не копировать повторно
+ - Глобальные скиллы в `.agents/skills/` остаются неизменными
+ 
++## Источники скиллов и компонентов
++
++### Agent Skills (AI-скиллы для задач)
++При поиске готовых скиллов для агентных задач обращаться к:
++- **[skills.sh](https://skills.sh/)** — каталог скиллов по технологиям
++- **[VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills)** — 1060+ скиллов от команд (Vercel, Microsoft, OpenAI, Trail of Bits и др.). Локальный каталог: `.agents/skills/awesome-agent-skills-catalog/`
++- **GitHub** — поиск по `agent-skills`, `claude-skills`, `codex-skills`, `mcp-server`
++- **Репозитории команд** — официальные скиллы в репо фреймворков (Vercel Labs, HuggingFace, Cloudflare, Expo и т.д.)
++- **Сообщество** — [obra/superpowers](https://github.com/obra/superpowers), [NeoLabHQ/context-engineering-kit](https://github.com/NeoLabHQ/context-engineering-kit), [hamelsmu/prompts](https://github.com/hamelsmu/prompts)
++
++### Дизайн и фронтенд-компоненты
++При поиске UI-решений, паттернов, инспирации:
++- **[21st.dev](https://21st.dev/home)** — каталог готовых React-компонентов и дизайн-систем с демо
++- **[shadcn/ui](https://ui.shadcn.com/)** — коллекция доступных компонентов с исходниками
++- **[v0.dev](https://v0.dev/)** — AI-генерация UI-компонентов
++- **[ui.aceternity.com](https://ui.aceternity.com/)** — трендовые анимации и эффекты
++- **[motion-primitives.com](https://motion-primitives.com/)** — анимированные UI-паттерны
++- **[hyperui.dev](https://www.hyperui.dev/)** — free Tailwind компоненты
++- **[refactoringui.com](https://refactoringui.com/)** — практические советы по UI
++- **[tailwindcomponents.com](https://tailwindcomponents.com/)** — сообщество Tailwind-компонентов
++- **[Storybook Hub](https://storybook.js.org/showcase)** — примеры дизайн-систем
++- **Dribbble / Mobbin** — трендовый визуал и паттерны мобильных интерфейсов
++
+ ## Boundaries
+ 
+ - Code: write normal. Caveman English only
