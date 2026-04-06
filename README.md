@@ -1,6 +1,6 @@
 # AGENTS.md — Глобальная конфигурация агента
 
-> **Автор:** [@smartcaveman1](https://t.me/smartcaveman1) | [AUTHOR.md](AUTHOR.md)
+> **Автор:** [@smartcaveman1](https://t.me/smartcaveman1) | [AUTHOR.md](AUTHOR.md) | [MIT License](LICENSE)
 
 ## Что это
 
