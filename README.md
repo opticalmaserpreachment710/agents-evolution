@@ -139,6 +139,21 @@ mkdir -p ~/.agents/skills
 mkdir -p ~/.notes/INBOX
 ```
 
+## Готовые скиллы
+
+В репозитории есть папка `skills/` с готовыми скиллами:
+
+| Скилл | Описание |
+|---|---|
+| `skills/caveman/SKILL.md` | Ultra-compressed communication mode — экономия ~75% токенов |
+| `skills/explain-complex-code/SKILL.md` | Объяснение сложного кода с TL;DR, аналогиями, gradual depth |
+
+Чтобы установить глобально:
+```bash
+cp -r skills/caveman ~/.agents/skills/
+cp -r skills/explain-complex-code ~/.agents/skills/
+```
+
 ## Эволюция версий
 
 | Файл | Описание |
