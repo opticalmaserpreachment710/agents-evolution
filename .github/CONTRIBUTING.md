@@ -19,7 +19,7 @@
 cp -r skills/.template skills/my-skill-name
 ```
 
-Шаблон: [`skills/.template/`](../skills/.template/)
+Шаблон: [`skills/.template/SKILL.md`](../skills/.template/SKILL.md)
 
 ### Структура
 
