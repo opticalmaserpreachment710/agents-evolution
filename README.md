@@ -154,6 +154,16 @@ cp -r skills/caveman ~/.agents/skills/
 cp -r skills/explain-complex-code ~/.agents/skills/
 ```
 
+## Рекомендации по моделям
+
+**Совет:** китайские модели (Qwen, DeepSeek, GLM) — протестировано, думают и выполняют код лучше и быстрее.
+
+Caveman mode изначально создавался для **Claude** — можете попробовать, тоже отлично работает.
+
+## Благодарности
+
+Оригинальный скилл **caveman mode** создал [JuliusBrussee](https://github.com/JuliusBrussee/caveman) — ему спасибо! 🙏
+
 ## Эволюция версий
 
 | Файл | Описание |
