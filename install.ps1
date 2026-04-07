@@ -48,10 +48,10 @@ Write-Host "📁 Создаю .myskills\skills\" -ForegroundColor Yellow
 $mySkillsDir = Join-Path $HOME_DIR ".myskills\skills"
 New-Item -ItemType Directory -Path $mySkillsDir -Force | Out-Null
 
-# 3. Копируем скиллы из skills/ → ~/.agents/skills/
-if (Test-Path "$SCRIPT_DIR\skills") {
+# 3. Копируем ВСЕ скиллы из .agents/skills/ (единый источник)
+if (Test-Path "$SCRIPT_DIR\.agents\skills") {
     Write-Host "🧩 Копирую скиллы..." -ForegroundColor Yellow
-    Get-ChildItem "$SCRIPT_DIR\skills" -Directory | Where-Object { $_.Name -ne ".template" } | ForEach-Object {
+    Get-ChildItem "$SCRIPT_DIR\.agents\skills" -Directory | Where-Object { $_.Name -ne ".template" } | ForEach-Object {
         $skillName = $_.Name
         $destDir = Join-Path $skillsDir $skillName
         if (Test-Path $destDir) {
@@ -62,41 +62,22 @@ if (Test-Path "$SCRIPT_DIR\skills") {
     }
 }
 
-# 4. Копируем мета-скиллы оркестрации
-if (Test-Path "$SCRIPT_DIR\.agents\skills\meta\orchestration") {
-    Write-Host "🎭 Копирую мета-оркестрацию..." -ForegroundColor Yellow
-    $metaDir = Join-Path $HOME_DIR ".agents\skills\meta"
-    New-Item -ItemType Directory -Path $metaDir -Force | Out-Null
-    Copy-Item "$SCRIPT_DIR\.agents\skills\meta\orchestration" $metaDir -Recurse -Force
-    Write-Host "   ✅ meta/orchestration (spawn, synthesis, recovery, multi-session)" -ForegroundColor Green
-}
-
-# 5. Копируем subagent-creator-universal
-if (Test-Path "$SCRIPT_DIR\.agents\skills\subagent-creator-universal") {
-    Write-Host "🏗️  Копирую subagent-creator-universal..." -ForegroundColor Yellow
-    $destDir = Join-Path $HOME_DIR ".agents\skills\subagent-creator-universal"
-    if (Test-Path $destDir) {
-        Remove-Item $destDir -Recurse -Force
-    }
-    Copy-Item "$SCRIPT_DIR\.agents\skills\subagent-creator-universal" $HOME_DIR\.agents\skills -Recurse -Force
-    Write-Host "   ✅ subagent-creator-universal" -ForegroundColor Green
-}
-
-# 6. Копируем примеры субагентов
+# 4. Копируем примеры субагентов
 if (Test-Path "$SCRIPT_DIR\.agents\ExampleSubagents") {
     Write-Host "📋 Копирую примеры субагентов..." -ForegroundColor Yellow
-    Get-ChildItem "$SCRIPT_DIR\.agents\ExampleSubagents" -Recurse | ForEach-Object {
-        $destPath = $_.FullName -replace [regex]::Escape("$SCRIPT_DIR\.agents\ExampleSubagents"), "$exampleDir"
-        if ($_.PSIsContainer) {
-            New-Item -ItemType Directory -Path $destPath -Force | Out-Null
-        } else {
-            Copy-Item $_.FullName $destPath -Force
+    Get-ChildItem "$SCRIPT_DIR\.agents\ExampleSubagents" -Recurse | Where-Object { $_.Name -ne "README.md" -and -not $_.PSIsContainer } | ForEach-Object {
+        $relPath = $_.FullName.Substring(("$SCRIPT_DIR\.agents\ExampleSubagents").Length + 1)
+        $destPath = Join-Path $exampleDir $relPath
+        $destParent = Split-Path $destPath -Parent
+        if (-not (Test-Path $destParent)) {
+            New-Item -ItemType Directory -Path $destParent -Force | Out-Null
         }
+        Copy-Item $_.FullName $destPath -Force
     }
     Write-Host "   ✅ ExampleSubagents (12 примеров)" -ForegroundColor Green
 }
 
-# 7. Создаём .notes\INBOX\
+# 5. Создаём .notes\INBOX\
 Write-Host "📝 Создаю .notes\INBOX\" -ForegroundColor Yellow
 $inboxDir = Join-Path $HOME_DIR ".notes\INBOX"
 New-Item -ItemType Directory -Path $inboxDir -Force | Out-Null

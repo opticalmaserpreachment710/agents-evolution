@@ -370,30 +370,21 @@ mkdir -p ~/.notes/INBOX
 
 ## Готовые скиллы
 
-В репозитории есть папка `skills/` с готовыми скиллами:
+В репозитории все скиллы находятся в `.agents/skills/` — единый источник:
 
 | Скилл | Описание |
 |---|---|
-| `skills/caveman/SKILL.md` | Ultra-compressed communication mode — экономия ~75% токенов |
-| `skills/explain-complex-code/SKILL.md` | Объяснение сложного кода с TL;DR, аналогиями, gradual depth. **Уровень объяснений — Sonnet/Opus** — когда вы просите объяснить, агент выдаёт качество на уровне топовых моделей Claude. |
-
-Чтобы установить глобально (агентские):
-```bash
-cp -r skills/caveman ~/.agents/skills/
-cp -r skills/explain-complex-code ~/.agents/skills/
-```
-
-## Рекомендации по моделям
-
-**Совет:** китайские модели (Qwen, DeepSeek, GLM) — протестировано, думают и выполняют код лучше и быстрее.
-
-Caveman mode изначально создавался для **Claude** — можете попробовать, тоже отлично работает.
+| `.agents/skills/caveman/SKILL.md` | Ultra-compressed communication mode — экономия ~75% токенов |
+| `.agents/skills/explain-complex-code/SKILL.md` | Объяснение сложного кода с ELI5, Feynman, Gradural. **Уровень объяснений — Sonnet/Opus** |
+| `.agents/skills/meta/orchestration/spawn/` | Кого, когда и сколько запускать параллельно |
+| `.agents/skills/meta/orchestration/synthesis/` | Как собирать результаты без дублей |
+| `.agents/skills/meta/orchestration/recovery/` | Что делать когда агент упал |
+| `.agents/skills/meta/orchestration/multi-session-worker/` | tmux-воркеры, IPC через файлы |
+| `.agents/skills/subagent-creator-universal/` | Создание агентов для 6 CLI/IDE |
 
 ## Благодарности
 
 Оригинальный скилл **caveman mode** создал [JuliusBrussee](https://github.com/JuliusBrussee/caveman) — ему спасибо! 🙏
-
-Скилл **explain-complex-code** — создан автором этого репозитория совместно с нейросетью через анализ открытых репозиториев. Нашёл лучшие паттерны объяснения кода и собрал в мощный универсальный скилл с тремя режимами (ELI5, Feynman, Gradual). Объяснения получаются на уровне **Sonnet/Opus** моделей Claude — когда вы просите объяснить, качество будет топовым.
 
 ## Эволюция версий
 

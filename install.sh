@@ -50,10 +50,10 @@ mkdir -p "$HOME_DIR/.agents/ExampleSubagents"
 echo -e "${YELLOW}📁 Создаю ~/.myskills/skills/${NC}"
 mkdir -p "$HOME_DIR/.myskills/skills"
 
-# 3. Копируем скиллы из skills/ → ~/.agents/skills/
-if [ -d "$SCRIPT_DIR/skills" ]; then
+# 3. Копируем ВСЕ скиллы из .agents/skills/ (единый источник)
+if [ -d "$SCRIPT_DIR/.agents/skills" ]; then
     echo -e "${YELLOW}🧩 Копирую скиллы...${NC}"
-    for skill_dir in "$SCRIPT_DIR"/skills/*/; do
+    for skill_dir in "$SCRIPT_DIR"/.agents/skills/*/; do
         skill_name=$(basename "$skill_dir")
         # Пропускаем .template
         if [ "$skill_name" = ".template" ]; then
@@ -66,28 +66,20 @@ if [ -d "$SCRIPT_DIR/skills" ]; then
     done
 fi
 
-# 4. Копируем мета-скиллы оркестрации
-if [ -d "$SCRIPT_DIR/.agents/skills/meta/orchestration" ]; then
-    echo -e "${YELLOW}🎭 Копирую мета-оркестрацию...${NC}"
-    cp -r "$SCRIPT_DIR/.agents/skills/meta/orchestration" "$HOME_DIR/.agents/skills/meta/"
-    echo -e "${GREEN}   ✅ meta/orchestration (spawn, synthesis, recovery, multi-session)${NC}"
-fi
-
-# 5. Копируем subagent-creator-universal
-if [ -d "$SCRIPT_DIR/.agents/skills/subagent-creator-universal" ]; then
-    echo -e "${YELLOW}🏗️  Копирую subagent-creator-universal...${NC}"
-    cp -r "$SCRIPT_DIR/.agents/skills/subagent-creator-universal" "$HOME_DIR/.agents/skills/"
-    echo -e "${GREEN}   ✅ subagent-creator-universal${NC}"
-fi
-
-# 6. Копируем примеры субагентов
+# 4. Копируем примеры субагентов
 if [ -d "$SCRIPT_DIR/.agents/ExampleSubagents" ]; then
     echo -e "${YELLOW}📋 Копирую примеры субагентов...${NC}"
-    cp -r "$SCRIPT_DIR/.agents/ExampleSubagents"/* "$HOME_DIR/.agents/ExampleSubagents/"
+    for item in "$SCRIPT_DIR/.agents/ExampleSubagents"/*; do
+        item_name=$(basename "$item")
+        if [ "$item_name" = "README.md" ]; then
+            continue
+        fi
+        cp -r "$item" "$HOME_DIR/.agents/ExampleSubagents/$item_name"
+    done
     echo -e "${GREEN}   ✅ ExampleSubagents (12 примеров)${NC}"
 fi
 
-# 7. Создаём .notes/INBOX/
+# 5. Создаём .notes/INBOX/
 echo -e "${YELLOW}📝 Создаю ~/.notes/INBOX/${NC}"
 mkdir -p "$HOME_DIR/.notes/INBOX"
 echo -e "${GREEN}   ✅ .notes/INBOX создана${NC}"
