@@ -382,6 +382,14 @@ mkdir -p ~/.notes/INBOX
 | `.agents/skills/meta/orchestration/multi-session-worker/` | tmux-воркеры, IPC через файлы |
 | `.agents/skills/subagent-creator-universal/` | Создание агентов для 6 CLI/IDE |
 
+## Рекомендации по моделям
+
+**Совет:** китайские модели (Qwen, DeepSeek, GLM) — протестировано, думают и выполняют код лучше и быстрее.
+
+Caveman mode изначально создавался для **Claude** — можете попробовать, тоже отлично работает.
+
+Скилл **explain-complex-code** — создан автором этого репозитория совместно с нейросетью через анализ открытых репозиториев. Нашёл лучшие паттерны объяснения кода и собрал в мощный универсальный скилл с тремя режимами (ELI5, Feynman, Gradual). Объяснения получаются на уровне **Sonnet/Opus** моделей Claude — когда вы просите объяснить, качество будет топовым.
+
 ## Благодарности
 
 Оригинальный скилл **caveman mode** создал [JuliusBrussee](https://github.com/JuliusBrussee/caveman) — ему спасибо! 🙏
